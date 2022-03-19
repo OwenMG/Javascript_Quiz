@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Javascript Quiz</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./assets/css/reset.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Javascript Fundamentals Quiz</h1>
+            <div id="timer"></div>
+        </header>
+        <article id="intro">
+           <p id = "message"> Welcome to the Javascript Fundamentals quiz! This quiz will conisist of multiple choice questions,
+            all of which you must complete within 90 seconds. Beware! If you get a question wrong, you will lose 5 seconds!
+             When you are prepared to begin, click the button below.
+        </p>
+        <button id="begin">BEGIN QUIZ</button>
+        </article>
+
+
+        <main id ="quizfield" class="hidden">
+            <p id="qNumber"></p>
+            <p id="prompt"></p>
+            <ul id="qDisplay" > 
+                <li id="opA" class="choice"></li>
+                <li id="opB" class="choice"></li>
+                <li id="opC" class="choice"></li>
+                <li id="opD"class="choice"></li>
+
+            </ul>
+        </main>
+
+
+        <script src="./assets/js/script.js" async defer></script>
+    </body>
+</html>
+
+<!-- data-question="" data-choiceA="" data-choiceB="" data-choiceC="" data-choiceD="" -->
