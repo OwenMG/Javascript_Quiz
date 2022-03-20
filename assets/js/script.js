@@ -11,6 +11,11 @@ var choiceD = document.querySelector('#opD');
 var promptEl = document.querySelector('#prompt');
 var questionNum = document.querySelector("#qNumber");
 var messageEl = document.querySelector("#message");
+var initialForm = document.querySelector("#initForm");
+var leader = document.getElementById("#leader");
+var initSubmit = document.querySelector("#initSubmit");
+var highScore = localStorage.getItem("score");
+var initials = localStorage.getItem("initials");
 
 // Setting some global variables that multiple functions access
 var index = 0;
@@ -105,9 +110,17 @@ function quizStart() {
 // End of quiz functions
 function displayScoreboard() {
     beginEl.remove()
-    messageEl.textContent = "Your score was " + score + " out of a possible " + quizContent.length + " points. You may enter your initals below to save your score."
-
+    messageEl.textContent = `Your score was ${score} out of a possible ${quizContent.length} points. You may enter your initals below to save your score.`
     introEl.style.removeProperty("display");
+    initialForm.classList.remove("hidden");
+    if (!highScore) {
+        highScore = 0;
+    }
+    var initials = localStorage.getItem("initials");
+    leader.textContent = `Current Saved Score: ${highScore}, achieved by ${initials}`;
+    
+
+
 }
 function endQuiz() {
     quizfield.remove();
@@ -140,3 +153,13 @@ questionEl.addEventListener("click", function(event) {
             displayQuestion(quizContent[index])
             
         })
+
+initSubmit.addEventListener("click", function(event) {
+    event.preventDefault();
+    initials = document.querySelector("#initials").value
+    highScore = score;
+    console.log(highScore);
+    localStorage.setItem("initials", initials);
+    localStorage.setItem("score", highScore);
+    
+    })
